@@ -3,92 +3,51 @@ COLMENERO
 MAIN SCRIPT
 ====================================*/
 
+/*====================================
+MOBILE MENU
+====================================*/
+
 const menuToggle = document.querySelector(".menu-toggle");
 const menuClose = document.querySelector(".menu-close");
 const mobileNav = document.querySelector(".mobile-nav");
 
-/*====================================
-OPEN MENU
-====================================*/
+if (menuToggle && menuClose && mobileNav) {
+  menuToggle.addEventListener("click", () => {
+    mobileNav.classList.add("active");
+  });
 
-if (menuToggle && mobileNav) {
+  menuClose.addEventListener("click", () => {
+    mobileNav.classList.remove("active");
+  });
 
-    menuToggle.addEventListener("click", () => {
-
-        mobileNav.classList.add("active");
-        document.body.classList.add("menu-open");
-
+  document.querySelectorAll(".mobile-nav a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileNav.classList.remove("active");
     });
-
+  });
 }
 
 /*====================================
-CLOSE MENU
+WHATSAPP
 ====================================*/
 
-if (menuClose && mobileNav) {
+const WHATSAPP_NUMBER = "524492223070";
 
-    menuClose.addEventListener("click", () => {
+const WHATSAPP_MESSAGE =
+  "Hola, me gustaría solicitar una asesoría patrimonial.";
 
-        mobileNav.classList.remove("active");
-        document.body.classList.remove("menu-open");
+const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
-    });
+document.querySelectorAll(".whatsapp-btn").forEach((button) => {
+  button.addEventListener("click", function (event) {
+    event.preventDefault();
 
-}
-
-/*====================================
-CLOSE WHEN CLICKING A LINK
-====================================*/
-
-if (mobileNav) {
-
-    mobileNav.querySelectorAll("a").forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            mobileNav.classList.remove("active");
-            document.body.classList.remove("menu-open");
-
-        });
-
-    });
-
-}
-
-/*====================================
-RESET WHEN RETURNING TO DESKTOP
-====================================*/
-
-window.addEventListener("resize", () => {
-
-    if (window.innerWidth > 1280) {
-
-        if (mobileNav) {
-
-            mobileNav.classList.remove("active");
-
-        }
-
-        document.body.classList.remove("menu-open");
-
-    }
-
+    window.open(whatsappURL, "_blank");
+  });
 });
 
 /*====================================
-SAFETY RESET ON PAGE LOAD
+LUCIDE ICONS
 ====================================*/
 
-window.addEventListener("load", () => {
-
-    document.body.classList.remove("menu-open");
-
-    if (mobileNav) {
-
-        mobileNav.classList.remove("active");
-
-    }
-
-});
 lucide.createIcons();
