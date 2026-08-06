@@ -1,0 +1,353 @@
+
+/*====================================
+AREAS
+====================================*/
+
+.areas-header{
+
+    max-width:56rem;
+
+    margin-inline:auto;
+
+    margin-bottom:var(--space-4xl);
+
+    text-align:center;
+
+}
+
+.areas-header .section-eyebrow{
+
+    display:inline-flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.areas-header .section-eyebrow::before{
+
+    left:50%;
+
+    right:auto;
+
+    transform:translateX(-50%);
+
+}
+
+.areas-header .section-title{
+
+    max-width:32ch;
+
+    margin-inline:auto;
+
+    text-align:center;
+
+}
+
+.areas-header .section-description{
+
+    text-align:center;
+
+    margin-inline:auto;
+
+    max-width:42rem;
+
+}
+
+.areas-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:1.5rem;
+
+}
+
+.area-card{
+
+      padding:1.5rem 0;
+
+    border-top:1px solid rgba(179,138,59,.25);
+
+}
+
+.area-card h3{
+
+    margin-bottom:1rem;
+
+}
+
+.area-card p{
+
+    color:var(--color-text-muted);
+
+    margin-bottom:1rem;
+
+    max-width:32rem;
+
+}
+
+.area-card a{
+
+    display:inline-block;
+
+    color:var(--color-accent);
+
+    font-size:var(--fs-sm);
+
+    font-weight:600;
+
+    transition:transform .3s ease;
+
+}
+
+.area-card:hover a{
+
+    transform:translateX(8px);
+
+}
+/*====================================
+AREA HEADING
+====================================*/
+
+.area-heading{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:1.15rem;
+
+    margin-bottom:1rem;
+
+}
+
+.area-heading svg{
+
+    width:30px;
+
+    height:30px;
+
+    color:var(--color-accent);
+
+    stroke:currentColor;
+
+    fill:none;
+
+    stroke-width:1.5;
+
+    transform:translateY(4px);
+
+}
+
+.area-heading svg{
+
+    width:30px;
+
+    height:30px;
+
+    color:var(--color-accent);
+
+    stroke:currentColor;
+
+    fill:none;
+
+    stroke-width:1.5;
+
+}
+
+.area-card h3{
+
+    margin:0;
+
+    line-height:1.15;
+
+}
+/*====================================
+AREAS
+TABLET
+====================================*/
+
+@media (max-width:992px){
+
+    .areas-header{
+
+        max-width:700px;
+
+        margin:0 auto 3rem;
+
+    }
+
+    .areas-header .section-eyebrow{
+
+        margin-bottom:1rem;
+
+    }
+
+    .areas-header .section-title{
+
+        max-width:18ch;
+
+        margin:0 auto 2rem;
+
+        text-align:center;
+
+    }
+
+    .areas-header .section-description{
+
+        max-width:42rem;
+
+        margin:0 auto;
+
+        text-align:center;
+
+    }
+
+    .areas-grid{
+
+        gap:2rem;
+
+    }
+
+}
+/*====================================
+AREAS
+MOBILE
+====================================*/
+
+@media (max-width:768px){
+
+    .areas{
+
+        padding:3rem 0;
+
+    }
+
+    .areas-header{
+
+        max-width:420px;
+
+        margin:0 auto 3rem;
+
+    }
+
+    .areas-header .section-eyebrow{
+
+        margin-bottom:.9rem;
+
+    }
+
+    .areas-header .section-title{
+
+        max-width:24ch;
+
+        margin:0 auto 1.5rem;
+
+        font-size:1.55rem;
+
+        line-height:1.08;
+
+        text-wrap:balance;
+
+    }
+
+    .areas-header .section-description{
+
+        max-width:38ch;
+
+        margin:0 auto;
+
+        font-size:.92rem;
+
+        line-height:1.6;
+
+        text-align:center;
+
+    }
+
+    .areas-grid{
+
+        grid-template-columns:1fr;
+
+        gap:1rem;
+
+    }
+
+    .area-card{
+
+        padding:1.25rem 0;
+
+    }
+
+    .area-heading{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:.9rem;
+
+        margin-bottom:.75rem;
+
+    }
+
+    .area-heading i{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+    }
+
+    .area-heading svg{
+
+        width:20px;
+
+        height:20px;
+
+        color:var(--color-accent);
+
+        stroke:currentColor;
+
+        fill:none;
+
+        stroke-width:1.8;
+
+        flex-shrink:0;
+
+    }
+
+    .area-card h3{
+
+        margin:0;
+
+        font-size:1.15rem;
+
+        line-height:1.25;
+
+    }
+
+    .area-card p{
+
+        margin-bottom:.75rem;
+
+        font-size:.92rem;
+
+        line-height:1.6;
+
+        max-width:100%;
+
+    }
+
+    .area-card a{
+
+        font-size:.9rem;
+
+    }
+
+}

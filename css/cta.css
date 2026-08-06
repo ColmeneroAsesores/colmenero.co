@@ -1,0 +1,148 @@
+/*====================================
+CTA
+====================================*/
+
+.cta{
+
+    padding:1rem 0;
+
+}
+
+.cta-content{
+
+    max-width:56rem;
+
+    margin-inline:auto;
+
+    text-align:center;
+
+}
+
+.cta .section-eyebrow{
+
+    display:inline-flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.cta .section-eyebrow::before{
+
+    left:50%;
+
+    right:auto;
+
+    transform:translateX(-50%);
+
+}
+
+.cta .section-title{
+
+    max-width:32ch;
+
+    margin:0 auto var(--space-3xl);
+
+    text-align:center;
+
+}
+
+.cta .section-description{
+
+    max-width:44rem;
+
+    margin:0 auto var(--space-5xl);
+
+    text-align:center;
+
+    color:var(--color-text-muted);
+
+}
+
+.cta .btn{
+
+    min-width:230px;
+
+}
+.mobile-cta{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:270px;
+
+    margin-bottom:2rem;
+
+}
+/*====================================
+CTA
+MOBILE
+====================================*/
+
+@media (max-width:768px){
+
+    .cta{
+
+        padding:3rem 0;
+
+    }
+
+    .cta-content{
+
+        max-width:420px;
+
+        margin:0 auto;
+
+    }
+
+    .cta .section-eyebrow{
+
+        margin-bottom:.9rem;
+
+    }
+
+    .cta .section-title{
+
+        max-width:24ch;
+
+        margin:0 auto 1.5rem;
+
+        font-size:1.55rem;
+
+        line-height:1.08;
+
+        text-wrap:balance;
+
+        text-align:center;
+
+    }
+
+    .cta .section-description{
+
+        max-width:38ch;
+
+        margin:0 auto 2rem;
+
+        font-size:.92rem;
+
+        line-height:1.6;
+
+        text-align:center;
+
+    }
+
+    .cta .btn{
+
+        width:100%;
+
+        max-width:320px;
+
+        min-width:0;
+
+    }
+
+}

@@ -1,0 +1,501 @@
+/*====================================
+PHILOSOPHY
+DESKTOP
+====================================*/
+
+.philosophy{
+
+    padding-top:3rem;
+
+    padding-bottom:1rem;
+
+}
+
+.philosophy-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:6rem;
+
+    align-items:center;
+
+}
+
+.philosophy-media{
+
+    display:flex;
+
+    justify-content:flex-start;
+
+    align-items:center;
+
+}
+
+.philosophy-media img{
+
+    display:block;
+
+    width:100%;
+
+    max-width:34rem;
+
+    height:auto;
+
+}
+
+.philosophy-content{
+
+    max-width:42rem;
+
+    margin-left:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-end;
+
+}
+
+/*====================================
+SECTION EYEBROW
+====================================*/
+
+.section-eyebrow{
+
+    position:relative;
+
+    display:inline-block;
+
+    width:100%;
+
+    margin-bottom:var(--space-xl);
+
+    padding-top:1.5rem;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+
+    color:var(--color-accent);
+
+    text-align:right;
+
+}
+
+.section-eyebrow::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    right:0;
+
+    width:9rem;
+
+    height:1px;
+
+    background:var(--color-accent);
+
+}
+
+/*====================================
+TITLE
+====================================*/
+
+.section-title{
+
+    width:100%;
+
+    max-width:32ch;
+
+    margin:0 0 var(--space-3xl);
+
+    margin-left:auto;
+
+    text-align:right;
+
+    font-size:clamp(2.4rem,3vw,3.4rem);
+
+    line-height:1.15;
+
+}
+
+/*====================================
+INTRO
+====================================*/
+
+.philosophy-intro{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-end;
+
+    gap:.75rem;
+
+}
+
+.philosophy-intro p{
+
+    width:100%;
+
+    max-width:38rem;
+
+    margin:0;
+
+    color:var(--color-text-muted);
+
+    text-align:right;
+
+    line-height:1.8;
+
+}
+
+/*====================================
+PRINCIPLES
+====================================*/
+
+.philosophy-principles{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:3rem;
+
+    margin-top:var(--space-6xl);
+
+}
+
+.principle{
+
+    padding-top:1rem;
+
+    border-top:1px solid rgba(179,138,59,.25);
+
+}
+
+.principle h3{
+
+    margin-bottom:1rem;
+
+    font-size:1.35rem;
+
+    line-height:1.3;
+
+}
+
+.principle p{
+
+    margin:0;
+
+    color:var(--color-text-muted);
+
+    line-height:1.8;
+
+}
+
+/*====================================
+CTA
+====================================*/
+
+.philosophy-cta{
+
+    margin-top:var(--space-6xl);
+
+}
+
+/*====================================
+PHILOSOPHY
+TABLET
+====================================*/
+
+@media (max-width:992px){
+
+    .philosophy{
+
+        padding:5rem 0 3rem;
+
+    }
+
+    .philosophy-grid{
+
+        display:grid;
+
+        grid-template-columns:1fr;
+
+        gap:3rem;
+
+    }
+
+    .philosophy-content{
+
+        order:1;
+
+        max-width:700px;
+
+        margin:0 auto;
+
+        align-items:center;
+
+    }
+
+    .section-eyebrow{
+
+        text-align:center;
+
+        margin-bottom:1rem;
+
+    }
+
+    .section-eyebrow::before{
+
+        left:50%;
+
+        right:auto;
+
+        transform:translateX(-50%);
+
+    }
+
+    .section-title{
+
+        max-width:18ch;
+
+        margin:0 auto 2rem;
+
+        text-align:center;
+
+        font-size:clamp(2.2rem,4vw,3rem);
+
+        line-height:1.1;
+
+    }
+
+    .philosophy-intro{
+
+        align-items:center;
+
+        gap:.6rem;
+
+    }
+
+    .philosophy-intro p{
+
+        max-width:42ch;
+
+        text-align:center;
+
+        line-height:1.7;
+
+    }
+
+    .philosophy-media{
+
+        order:2;
+
+        justify-content:center;
+
+    }
+
+    .philosophy-media img{
+
+        width:100%;
+
+        max-width:680px;
+
+    }
+
+    .philosophy-principles{
+
+        margin-top:4rem;
+
+        grid-template-columns:1fr;
+
+        gap:2rem;
+
+    }
+
+    .principle{
+
+        text-align:center;
+
+    }
+
+    .principle h3{
+
+        font-size:1.3rem;
+
+    }
+
+    .principle p{
+
+        max-width:44ch;
+
+        margin:0 auto;
+
+    }
+
+}
+/*====================================
+PHILOSOPHY
+MOBILE
+====================================*/
+
+@media (max-width:768px){
+
+    .philosophy{
+
+        padding:4rem 0 2rem;
+
+    }
+
+    .philosophy-grid{
+
+        display:block;
+
+        margin-bottom:2rem;
+
+    }
+
+    .philosophy-media{
+
+        display:none;
+
+    }
+
+    .philosophy-content{
+
+        max-width:420px;
+
+        margin:0 auto;
+
+        align-items:center;
+
+        text-align:center;
+
+    }
+
+    .section-eyebrow{
+
+        margin-bottom:.9rem;
+
+        text-align:center;
+
+    }
+
+    .section-eyebrow::before{
+
+        left:50%;
+
+        right:auto;
+
+        transform:translateX(-50%);
+
+        width:7rem;
+
+    }
+
+    .section-title{
+
+        margin:0 auto 1.5rem;
+
+        max-width:24ch;
+
+        font-size:1.55rem;
+
+        line-height:1.08;
+
+        text-align:center;
+
+        text-wrap:balance;
+
+    }
+
+    .philosophy-intro{
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:.4rem;
+
+        width:100%;
+
+    }
+
+    .philosophy-intro p{
+
+        margin:0;
+
+        max-width:38ch;
+
+        font-size:.92rem;
+
+        line-height:1.6;
+
+        text-align:center;
+
+        color:var(--color-text-muted);
+
+    }
+
+    .philosophy-principles{
+
+        display:grid;
+
+        grid-template-columns:1fr;
+
+        gap:1.5rem;
+
+        margin-top:2rem;
+
+    }
+
+    .principle{
+
+        padding-top:1rem;
+
+        text-align:center;
+
+    }
+
+    .principle h3{
+
+        margin-bottom:.75rem;
+
+        font-size:1.15rem;
+
+        line-height:1.25;
+
+    }
+
+    .principle p{
+
+        margin:0 auto;
+
+        max-width:38ch;
+
+        font-size:.92rem;
+
+        line-height:1.6;
+
+        text-align:center;
+
+    }
+
+}
