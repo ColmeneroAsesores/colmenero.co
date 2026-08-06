@@ -316,10 +316,18 @@ COMPONENTS
 
 /* Container */
 
+/*====================================
+CONTAINER
+====================================*/
+
 .container {
-  width: min(100% - (var(--space-4xl) * 2), var(--container-width));
+  width: 100%;
+
+  max-width: var(--container-width);
 
   margin-inline: auto;
+
+  padding-inline: var(--space-4xl);
 }
 /* Section */
 
@@ -641,6 +649,3 @@ UTILITIES
 body.menu-open {
   overflow: hidden;
 }
-/*====================================
-RESPONSIVE
-====================================*/
