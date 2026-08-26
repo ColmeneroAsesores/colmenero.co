@@ -1,0 +1,11 @@
+{
+  "assets": [
+    {
+      "id": "posicionamiento_educacion_vida_001",
+      "file": "posicionamiento_educacion_vida_001.jpg",
+      "objective": "posicionamiento",
+      "content_type": "educacion",
+      "branch": "vida"
+    }
+  ]
+}
