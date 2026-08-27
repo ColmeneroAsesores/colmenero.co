@@ -1,176 +1,82 @@
 # COLMENERO Asesores Patrimoniales
 
-**Versión:** 1.0
+Sitio institucional estático de COLMENERO Asesores Patrimoniales.
 
-**Estado:** En desarrollo
+## Estado
 
-**Última actualización:** Agosto 2026
-
----
-
-## Objetivo
-
-Construir un sitio web profesional, rápido, accesible y escalable que represente la identidad institucional de COLMENERO Asesores Patrimoniales.
-
-El proyecto sigue una metodología de desarrollo basada en componentes reutilizables y un Design System propio.
-
----
+- Rama de producción: `main`
+- Página vigente: home institucional
+- Despliegue: automático hacia HostGator mediante GitHub Actions
+- Subpáginas comerciales: pendientes
+- Integración visual de GNP: pendiente del activo oficial
+- Animaciones: pendientes; `css/animations.css` se conserva para esa fase
 
 ## Tecnologías
 
 - HTML5
-- CSS3
+- CSS3 modular
 - JavaScript Vanilla
+- Lucide para iconografía
 
----
-
-## Estructura del proyecto
+## Estructura
 
 ```text
-COLMENERO/
-
-│
+.
+├── .github/workflows/deploy.yml
+├── aviso-de-privacidad.html
+├── terminos-y-condiciones.html
 ├── index.html
-│
+├── robots.txt
+├── sitemap.xml
 ├── css/
-│      style.css
-│
-├── js/
-│      script.js
-│
-├── media/
-│      images/
-│          logo/
-│          photos/
-│          backgrounds/
-│
-│      video/
-│
-│      audio/
-│
-├── icons/
-│
-├── fonts/
-│
-├── documents/
-│
+│   ├── style.css
+│   ├── responsive.css
+│   ├── hero.css
+│   ├── philosophy.css
+│   ├── process.css
+│   ├── advisory.css
+│   ├── firm.css
+│   ├── footer.css
+│   ├── cta.css
+│   ├── legal.css
+│   └── animations.css
 ├── favicon/
-│
-└── README.md
+├── js/script.js
+├── media/
+└── scripts/validate-site.mjs
 ```
 
----
+## Flujo de trabajo
 
-## Estándares
+Todo cambio aprobado se integra en `main`. Cada `push` activa GitHub Actions:
 
-Este proyecto sigue los siguientes documentos:
+1. Descarga el repositorio.
+2. Comprueba la sintaxis de JavaScript.
+3. Valida la estructura HTML básica y las referencias internas.
+4. Detiene el proceso si encuentra un error detectable.
+5. Despliega por FTP únicamente cuando las validaciones terminan correctamente.
 
-- Filosofía Base de COLMENERO Asesores Patrimoniales.
-- Estándar de Desarrollo Front-End – Metodología Colmenero.
+Validación local:
 
----
-
-## Principios de Desarrollo
-
-- HTML semántico.
-- CSS moderno.
-- JavaScript Vanilla.
-- Responsive Design.
-- Accesibilidad (WCAG).
-- SEO Técnico.
-- Alto rendimiento.
-- Código limpio.
-- Componentes reutilizables.
-- Design System.
-
----
-
-## Convenciones
-
-Todo el desarrollo deberá seguir las siguientes reglas:
-
-- No desarrollar páginas, desarrollar componentes.
-- Todo componente comienza con HTML.
-- Después CSS.
-- Después Responsive.
-- JavaScript únicamente cuando sea necesario.
-- Nunca repetir código si puede reutilizarse.
-- Toda decisión visual deberá pertenecer al Design System.
-- Todas las variables deberán declararse en `:root`.
-- Todo cambio deberá favorecer la mantenibilidad y la escalabilidad del proyecto.
-
----
-
-## Estructura del CSS
-
-El archivo principal será:
-
-```text
-css/style.css
+```bash
+node --check js/script.js
+node scripts/validate-site.mjs
 ```
 
-Su organización seguirá siempre este orden:
+## Principios de desarrollo
 
-```css
-/*====================================
-ROOT
-====================================*/
+- Conservar HTML semántico, accesibilidad y responsive design.
+- Mantener los componentes separados en hojas CSS lógicas.
+- Evitar dependencias innecesarias.
+- No inventar oferta, información jurídica ni decisiones estratégicas.
+- Aplicar únicamente activos visuales oficiales.
+- Mantener `main` como fuente única de verdad para producción.
 
-/*====================================
-RESET
-====================================*/
+## Pendientes
 
-/*====================================
-BASE
-====================================*/
-
-/*====================================
-MEDIA
-====================================*/
-
-/*====================================
-LINKS
-====================================*/
-
-/*====================================
-LISTS
-====================================*/
-
-/*====================================
-TYPOGRAPHY
-====================================*/
-
-/*====================================
-LAYOUT
-====================================*/
-
-/*====================================
-COMPONENTS
-====================================*/
-
-/*====================================
-UTILITIES
-====================================*/
-
-/*====================================
-RESPONSIVE
-====================================*/
-```
-
----
-
-## Estado del Proyecto
-
-Actualmente el proyecto se encuentra en fase de desarrollo del Design System.
-
-El objetivo inmediato es construir una base sólida, mantenible y escalable antes de desarrollar cualquier componente o sección del sitio.
-
----
-
-## Principio Rector
-
-Antes de implementar cualquier solución deberá responderse la siguiente pregunta:
-
-> **¿Esta decisión seguirá siendo correcta dentro de cinco años?**
-
-Si la respuesta es no, deberá buscarse una alternativa mejor.
+- Sustituir el contenido provisional de las páginas legales cuando exista texto aprobado.
+- Integrar el respaldo institucional de GNP cuando el operador entregue el activo oficial.
+- Realizar la investigación SEO cruzada antes de definir arquitectura, keywords y subpáginas.
+- Construir subpáginas y landing pages únicamente después de su aprobación.
+- Definir e implementar animaciones editoriales sutiles.
+- Incorporar formularios, analítica y tracking solo cuando exista una decisión posterior.

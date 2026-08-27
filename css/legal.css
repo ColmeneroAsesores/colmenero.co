@@ -1,0 +1,21 @@
+/*====================================
+LEGAL PAGES
+====================================*/
+
+.legal-header { border-bottom: 1px solid rgba(179, 138, 59, 0.2); }
+.legal-header .container { display: flex; align-items: center; justify-content: space-between; min-height: 7rem; gap: 2rem; }
+.legal-back { color: var(--color-text-muted); font-size: var(--fs-sm); }
+.legal-main { min-height: calc(100vh - 14rem); padding: var(--space-7xl) 0; }
+.legal-content { max-width: var(--container-reading); }
+.legal-content .section-eyebrow { text-align: left; }
+.legal-content .section-eyebrow::before { left: 0; right: auto; }
+.legal-content h1 { margin-bottom: var(--space-2xl); font-size: clamp(2.25rem, 5vw, 3.5rem); }
+.legal-content p { color: var(--color-text-muted); }
+.legal-footer { padding: 2rem 0; border-top: 1px solid rgba(179, 138, 59, 0.2); }
+.legal-footer p { color: var(--color-text-muted); font-size: var(--fs-sm); text-align: center; }
+
+@media (max-width: 768px) {
+  .legal-header .container { min-height: 5.5rem; padding-inline: var(--space-lg); }
+  .legal-header .brand-tagline, .legal-header .brand-divider { display: none; }
+  .legal-main { min-height: calc(100vh - 11rem); padding: var(--space-5xl) 0; }
+}

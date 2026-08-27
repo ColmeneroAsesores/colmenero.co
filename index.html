@@ -2,7 +2,7 @@
 <html lang="es-MX">
 
 <head>
-<script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <!--====================================
     META BÁSICOS
     ====================================-->
@@ -31,15 +31,27 @@
         name="robots"
         content="index, follow">
 
+    <link rel="canonical" href="https://colmenero.co/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="COLMENERO Asesores Patrimoniales">
+    <meta property="og:title" content="COLMENERO Asesores Patrimoniales">
+    <meta property="og:description" content="Firma de asesoría patrimonial especializada en ayudar a personas, familias y empresarios a construir, proteger y preservar su patrimonio mediante estrategias personalizadas de largo plazo.">
+    <meta property="og:url" content="https://colmenero.co/">
+    <meta property="og:image" content="https://colmenero.co/media/images/photos/hero-legado.webp">
+    <meta property="og:image:alt" content="Familia celebrando la graduación de una hija">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="COLMENERO Asesores Patrimoniales">
+    <meta name="twitter:description" content="Firma de asesoría patrimonial especializada en ayudar a personas, familias y empresarios a construir, proteger y preservar su patrimonio mediante estrategias personalizadas de largo plazo.">
+    <meta name="twitter:image" content="https://colmenero.co/media/images/photos/hero-legado.webp">
+
     <!--====================================
     FAVICON
     ====================================-->
 
     <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
 
     <!--====================================
     GOOGLE FONTS
@@ -59,14 +71,6 @@
         rel="stylesheet">
 
     <!--====================================
-    FONT AWESOME
-    ====================================-->
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-    <!--====================================
     CSS
     ====================================-->
 <link rel="stylesheet" href="css/style.css">
@@ -79,6 +83,23 @@
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/cta.css">
 <link rel="stylesheet" href="css/animations.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "COLMENERO Asesores Patrimoniales",
+        "url": "https://colmenero.co/",
+        "logo": "https://colmenero.co/media/logo/logo-completo.svg",
+        "telephone": "+52 449 222 3070",
+        "email": "eze_colmenero@intermediariognp.mx",
+        "sameAs": [
+            "https://www.facebook.com/ColmeneroAsesores",
+            "https://www.instagram.com/colmeneroasesores/",
+            "https://www.linkedin.com/company/colmeneroasesores"
+        ]
+    }
+    </script>
 
 </head>
 
@@ -167,7 +188,7 @@ HEADER
             <div class="nav-actions">
 
                 <a
-                    href="#"
+                    href="https://wa.me/524492223070?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20una%20asesor%C3%ADa%20patrimonial."
                     class="btn btn-primary whatsapp-btn">
 
                     Solicitar una asesoría
@@ -206,9 +227,11 @@ HEADER
 
             <button
                 class="menu-toggle"
-                aria-label="Abrir menú">
+                aria-label="Abrir menú"
+                aria-controls="mobile-navigation"
+                aria-expanded="false">
 
-                <i class="fa-solid fa-bars"></i>
+                <i data-lucide="menu" aria-hidden="true"></i>
 
             </button>
 
@@ -219,14 +242,16 @@ HEADER
         ====================================-->
 
         <nav
+            id="mobile-navigation"
             class="mobile-nav"
-            aria-label="Menú móvil">
+            aria-label="Menú móvil"
+            aria-hidden="true">
 
             <button
                 class="menu-close"
                 aria-label="Cerrar menú">
 
-                <i class="fa-solid fa-xmark"></i>
+                <i data-lucide="x" aria-hidden="true"></i>
 
             </button>
 
@@ -275,7 +300,7 @@ HEADER
             </ul>
 
             <a
-                href="#"
+                href="https://wa.me/524492223070?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20una%20asesor%C3%ADa%20patrimonial."
                 class="btn btn-primary whatsapp-btn">
 
                 Solicitar una asesoría
@@ -332,6 +357,8 @@ HEADER
     </div>
 
 </header>
+
+<main id="contenido-principal">
  <!--====================================
 HERO
 =====================================-->
@@ -350,19 +377,19 @@ HERO
 
                 <p class="hero-eyebrow">
 
-                    Protección para tu legado.
+                    Protección para su legado.
 
                 </p>
 
                 <h1 class="hero-title">
 
-                    Estrategias diseñadas para ayudarte a proteger lo que más importa.
+                    Estrategias diseñadas para ayudarle a proteger lo que más importa.
 
                 </h1>
 
                 <p class="hero-description">
 
-                    Comenzamos por comprender tu realidad, tus objetivos y aquello que deseas construir. Solo entonces diseñamos una estrategia patrimonial personalizada para ayudarte a proteger, consolidar y hacer crecer tu patrimonio con una visión de largo plazo.
+                    Comenzamos por comprender su realidad, sus objetivos y aquello que desea construir. Solo entonces diseñamos una estrategia patrimonial personalizada para ayudarle a proteger, consolidar y hacer crecer su patrimonio con una visión de largo plazo.
 
                 </p>
 
@@ -376,7 +403,10 @@ HERO
 
                 <img
                     src="media/images/photos/hero-legado.webp"
-                    alt="Familia celebrando la graduación de una hija">
+                    alt="Familia celebrando la graduación de una hija"
+                    width="1530"
+                    height="1268"
+                    fetchpriority="high">
 
             </div>
 
@@ -387,7 +417,7 @@ HERO
             <div class="hero-actions">
 
                 <a
-                    href="#"
+                    href="https://wa.me/524492223070?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20una%20asesor%C3%ADa%20patrimonial."
                     class="btn btn-primary whatsapp-btn">
 
                     Solicitar una asesoría
@@ -421,7 +451,10 @@ FILOSOFÍA
 
                 <img
                     src="media/images/photos/philosopy-legado.webp"
-                    alt="Pareja observando la construcción de su casa">
+                    alt="Pareja observando la construcción de su casa"
+                    width="1221"
+                    height="1024"
+                    loading="lazy">
 
             </div>
 
@@ -439,7 +472,7 @@ FILOSOFÍA
 
                 <h2 class="section-title">
 
-                    Primero hablamos de tus sueños.<br>
+                    Primero hablamos de sus sueños.<br>
                     Después construimos la estrategia para alcanzarlos.
 
                 </h2>
@@ -518,7 +551,7 @@ FILOSOFÍA
 
                 <p>
 
-                    Nuestro trabajo no termina con una recomendación. Acompañamos decisiones que impactarán tu patrimonio, tu familia y tu legado.
+                    Nuestro trabajo no termina con una recomendación. Acompañamos decisiones que impactarán su patrimonio, su familia y su legado.
 
                 </p>
 
@@ -581,7 +614,7 @@ PROCESS
 
                     <p>
 
-                        Escuchamos tu historia, tus objetivos, tus prioridades y aquello que deseas proteger antes de hablar de cualquier estrategia.
+                        Escuchamos su historia, sus objetivos, sus prioridades y aquello que desea proteger antes de hablar de cualquier estrategia.
 
                     </p>
 
@@ -607,7 +640,7 @@ PROCESS
 
                     <p>
 
-                        Evaluamos tu situación patrimonial para identificar oportunidades, riesgos y alternativas con una visión integral.
+                        Evaluamos su situación patrimonial para identificar oportunidades, riesgos y alternativas con una visión integral.
 
                     </p>
 
@@ -633,7 +666,7 @@ PROCESS
 
                     <p>
 
-                        Construimos una estrategia personalizada alineada con tus objetivos, tu patrimonio y tu horizonte de largo plazo.
+                        Construimos una estrategia personalizada alineada con sus objetivos, su patrimonio y su horizonte de largo plazo.
 
                     </p>
 
@@ -659,7 +692,7 @@ PROCESS
 
                     <p>
 
-                        Permanecemos contigo para revisar, fortalecer y adaptar la estrategia conforme evolucionan tu vida y tu patrimonio.
+                        Permanecemos a su lado para revisar, fortalecer y adaptar la estrategia conforme evolucionan su vida y su patrimonio.
 
                     </p>
 
@@ -697,13 +730,13 @@ AREAS
 
             <h2 class="section-title">
 
-                Acompañamos las decisiones que más impacto tienen en tu patrimonio.
+                Acompañamos las decisiones que más impacto tienen en su patrimonio.
 
             </h2>
 
             <p class="section-description">
 
-                Desarrollamos estrategias patrimoniales adaptadas a tus objetivos, responsabilidades y proyectos de largo plazo.
+                Desarrollamos estrategias patrimoniales adaptadas a sus objetivos, responsabilidades y proyectos de largo plazo.
 
             </p>
 
@@ -716,7 +749,7 @@ AREAS
         <div class="areas-grid">
 
             <!--======================
-            Protección Familiar
+            Protección Familiar y Ahorro
             =======================-->
 
             <article class="area-card">
@@ -727,7 +760,7 @@ AREAS
 
                     <h3>
 
-                        Protección Familiar
+                        Protección Familiar y Ahorro
 
                     </h3>
 
@@ -735,31 +768,25 @@ AREAS
 
                 <p>
 
-                    Estrategias para proteger a quienes más quieres frente a los riesgos que podrían afectar su estabilidad.
+                    Estrategias para proteger a quienes más quiere y construir ahorro para objetivos como el retiro o la educación de sus hijos.
 
                 </p>
-
-                <a href="#">
-
-                    Conocer más →
-
-                </a>
 
             </article>
 
             <!--======================
-            Planeación para el Retiro
+            Protección de Salud
             =======================-->
 
             <article class="area-card">
 
                 <div class="area-heading">
 
-                    <i data-lucide="piggy-bank"></i>
+                    <i data-lucide="heart-pulse"></i>
 
                     <h3>
 
-                        Planeación para el Retiro
+                        Protección de Salud
 
                     </h3>
 
@@ -767,31 +794,25 @@ AREAS
 
                 <p>
 
-                    Diseñamos estrategias que te permitan construir independencia financiera y tranquilidad en el futuro.
+                    Estrategias orientadas a proteger su estabilidad patrimonial ante situaciones que puedan afectar su salud.
 
                 </p>
-
-                <a href="#">
-
-                    Conocer más →
-
-                </a>
 
             </article>
 
             <!--======================
-            Protección Empresarial
+            Protección de Bienes y Mascotas
             =======================-->
 
             <article class="area-card">
 
                 <div class="area-heading">
 
-                    <i data-lucide="building-2"></i>
+                    <i data-lucide="house"></i>
 
                     <h3>
 
-                        Protección Empresarial
+                        Protección de Bienes y Mascotas
 
                     </h3>
 
@@ -799,111 +820,9 @@ AREAS
 
                 <p>
 
-                    Soluciones para proteger la continuidad de tu empresa y el patrimonio que has construido.
+                    Alternativas para proteger los bienes que forman parte de su patrimonio y el bienestar de sus mascotas.
 
                 </p>
-
-                <a href="#">
-
-                    Conocer más →
-
-                </a>
-
-            </article>
-
-            <!--======================
-            Educación de los Hijos
-            =======================-->
-
-            <article class="area-card">
-
-                <div class="area-heading">
-
-                    <i data-lucide="graduation-cap"></i>
-
-                    <h3>
-
-                        Educación de los Hijos
-
-                    </h3>
-
-                </div>
-
-                <p>
-
-                    Planeamos hoy las oportunidades que deseas brindarles mañana.
-
-                </p>
-
-                <a href="#">
-
-                    Conocer más →
-
-                </a>
-
-            </article>
-
-            <!--======================
-            Crecimiento Patrimonial
-            =======================-->
-
-            <article class="area-card">
-
-                <div class="area-heading">
-
-                    <i data-lucide="chart-column"></i>
-
-                    <h3>
-
-                        Crecimiento Patrimonial
-
-                    </h3>
-
-                </div>
-
-                <p>
-
-                    Estrategias orientadas a fortalecer y desarrollar tu patrimonio con una visión de largo plazo.
-
-                </p>
-
-                <a href="#">
-
-                    Conocer más →
-
-                </a>
-
-            </article>
-
-            <!--======================
-            Planeación Patrimonial
-            =======================-->
-
-            <article class="area-card">
-
-                <div class="area-heading">
-
-                    <i data-lucide="landmark"></i>
-
-                    <h3>
-
-                        Planeación Patrimonial
-
-                    </h3>
-
-                </div>
-
-                <p>
-
-                    Diseñamos estrategias para proteger, organizar y transmitir tu patrimonio de manera ordenada.
-
-                </p>
-
-                <a href="#">
-
-                    Conocer más →
-
-                </a>
 
             </article>
 
@@ -959,7 +878,10 @@ FIRM
 
                 <img
                     src="media/images/photos/jorge-colmenero.webp"
-                    alt="Mtro. Jorge Octavio Colmenero">
+                    alt="Mtro. Jorge Octavio Colmenero"
+                    width="300"
+                    height="300"
+                    loading="lazy">
 
                 <h3>
 
@@ -979,7 +901,10 @@ FIRM
 
                 <img
                     src="media/images/photos/ezequiel-colmenero.webp"
-                    alt="Dr. Ezequiel Colmenero, PhD">
+                    alt="Dr. Ezequiel Colmenero, PhD"
+                    width="300"
+                    height="300"
+                    loading="lazy">
 
                 <h3>
 
@@ -1060,18 +985,18 @@ CTA
 
             <h2 class="section-title">
 
-                Las mejores estrategias comienzan comprendiendo aquello que deseas construir.
+                Las mejores estrategias comienzan comprendiendo aquello que desea construir.
 
             </h2>
 
             <p class="section-description">
 
-                La primera conversación no tiene como objetivo hablar de productos financieros. Tiene como propósito comprender tu realidad, tus objetivos y aquello que deseas proteger para comenzar a construir una estrategia patrimonial diseñada para el largo plazo.
+                La primera conversación no tiene como objetivo hablar de productos financieros. Tiene como propósito comprender su realidad, sus objetivos y aquello que desea proteger para comenzar a construir una estrategia patrimonial diseñada para el largo plazo.
 
             </p>
 
             <a
-                href="#"
+                href="https://wa.me/524492223070?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20una%20asesor%C3%ADa%20patrimonial."
                 class="btn btn-primary whatsapp-btn">
 
                 Solicitar una asesoría
@@ -1083,6 +1008,8 @@ CTA
     </div>
 
 </section>
+
+<!-- Punto de integración pendiente: respaldo institucional GNP con activo oficial proporcionado por el operador. -->
 	<!--====================================
 FOOTER
 =====================================-->
@@ -1100,11 +1027,12 @@ FOOTER
             <img
                 src="media/logo/logo-completo.svg"
                 alt="COLMENERO Asesores Patrimoniales"
-                class="footer-logo">
+                class="footer-logo"
+                loading="lazy">
 
             <p class="footer-tagline">
 
-                Protección para tu legado.
+                Protección para su legado.
 
             </p>
 
@@ -1116,20 +1044,20 @@ FOOTER
 
         <div class="footer-contact">
 
-            <a href="mailto:contacto@colmeneroasesores.com">
+            <a href="mailto:eze_colmenero@intermediariognp.mx">
 
-
+                Contactar por correo
 
             </a>
 
-            <a href="tel:+520000000000">
+            <a href="tel:+524492223070">
 
                 +52 (449) 222 3070
             </a>
 
             <span>
 
-            Aguascalientes , México
+            Aguascalientes, México
 
         </span>
 
@@ -1220,9 +1148,7 @@ Social
     JAVASCRIPT
     ====================================-->
 
-<script src="js/script.js">
-    lucide.createIcons();
-</script>
+<script src="js/script.js" defer></script>
 </body>
 
 </html>
