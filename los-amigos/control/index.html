@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><head><meta name="description" content="Prototipo de consulta de huéspedes de Los Amigos. Datos ficticios de demostración."><meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#123B2A"><title>Los Amigos · Consulta de huéspedes · Prototipo</title><style>body{margin:0;background:#F5F0E6}</style></head><body><style>
+<!doctype html><html lang="es"><head><meta name="description" content="Consulta interna de huéspedes de Los Amigos."><meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#123B2A"><title>Los Amigos · Consulta de huéspedes</title><style>body{margin:0;background:#F5F0E6}</style></head><body><style>
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
@@ -77,7 +77,7 @@
 <button type="button" data-am="next" aria-label="Día siguiente"></button>
 </nav>
 <button type="button" class="am-choose" data-am="choose">Elegir otra fecha</button>
-<p class="am-demo">DATOS DE DEMOSTRACIÓN<br>Hoy en la demostración: 1 sep 2026</p>
+<p class="am-demo" data-am="connection" role="status"></p>
 </header>
 <main data-am="results" aria-live="polite" aria-atomic="true"></main>
 <dialog data-am="dialog" aria-labelledby="am-date-title">
@@ -93,16 +93,14 @@
 (() => {
 const root = document.getElementById('amigos-prototipo');
 const el = name => root.querySelector('[data-am="'+name+'"]');
-const today = '2026-09-01';
+const currentDay = () => new Intl.DateTimeFormat('en-CA',{timeZone:'America/Mexico_City',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+let today = currentDay();
 let selected = today;
-// Fictitious confirmed stays only. No connector, storage or reservation writes.
-const stays = [
- {cabin:'BUGAMBILIA',name:'Juan Pérez',people:4,arrival:'2026-09-01',departure:'2026-09-03'},
- {cabin:'MARIPOSA',name:'Ana Torres',people:2,arrival:'2026-08-30',departure:'2026-09-02'},
- {cabin:'CARACOLES',name:'Pedro Ruiz',people:2,arrival:'2026-08-30',departure:'2026-09-01'},
- {cabin:'CARACOLES',name:'Laura Gómez',people:4,arrival:'2026-09-01',departure:'2026-09-03'},
- {cabin:'ARMADILLO',name:'Elena Castro',people:3,arrival:'2026-08-29',departure:'2026-09-01'}
-];
+// Only the selected day is returned by the authenticated, read-only endpoint.
+let stays = [];
+let requestNumber = 0;
+let aborter;
+const escape = value => String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const months=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
 function dateParts(d){return d.split('-').map(Number)}
 function shortDate(d){const [y,m,day]=dateParts(d);return day+' '+months[m-1]}
@@ -111,15 +109,36 @@ function visible(d){return stays.filter(s=>s.arrival<=d&&s.departure>=d)}
 function situation(s,d){return s.departure===d?'departure':s.arrival===d?'arrival':'stay'}
 const labels={arrival:'LLEGA HOY',stay:'HOSPEDADO',departure:'SALE HOY'};
 const symbols={arrival:'↘',stay:'●',departure:'↗'};
-function guest(s){const state=situation(s,selected);return '<section class="am-guest"><p class="am-people">'+s.people+' PERSONAS</p><p class="am-name">'+s.name+'</p><p class="am-status am-'+state+'"><span aria-hidden="true">'+symbols[state]+'</span>'+labels[state]+'</p><p class="am-exit">Sale: <strong>'+shortDate(s.departure)+'</strong></p></section>'}
-function render(){
+function guest(s){const state=situation(s,selected);return '<section class="am-guest"><p class="am-people">'+(s.people===null?'PERSONAS POR CONFIRMAR':s.people+(s.people===1?' PERSONA':' PERSONAS'))+'</p><p class="am-name">'+escape(s.name)+'</p><p class="am-status am-'+state+'"><span aria-hidden="true">'+symbols[state]+'</span>'+labels[state]+'</p><p class="am-exit">Sale: <strong>'+shortDate(s.departure)+'</strong></p></section>'}
+async function render(){
+ const request = ++requestNumber;
+ if(aborter) aborter.abort();
+ aborter = new AbortController();
  el('previous').textContent='‹ '+shortDate(shift(selected,-1)).toUpperCase();
  el('next').textContent=shortDate(shift(selected,1)).toUpperCase()+' ›';
  el('today').innerHTML=(selected===today?'HOY · ':'')+shortDate(selected).toUpperCase()+(selected===today?'':'<small>Volver a hoy</small>');
  el('today').setAttribute('aria-label','Fecha seleccionada: '+shortDate(selected)+' '+selected.slice(0,4)+'. Volver a hoy');
+ el('connection').textContent='';
+ el('results').innerHTML='<p class="am-empty">Consultando huéspedes…</p>';
+ try {
+  const response=await fetch('api.php?date='+encodeURIComponent(selected),{credentials:'same-origin',cache:'no-store',signal:aborter.signal});
+  const payload=await response.json();
+  if(request!==requestNumber)return;
+  if(!response.ok) {
+    const messages={configuration_pending:'La conexión con reservaciones está pendiente de activación.',authentication_required:'Ingresa con el acceso del personal.',too_many_attempts:'Espera 15 minutos antes de intentar nuevamente.'};
+    el('results').innerHTML='<p class="am-empty">'+(messages[payload.error] || 'No fue posible consultar las reservaciones. Intenta nuevamente.')+'</p>';
+    return;
+  }
+  if(payload.date!==selected || !Array.isArray(payload.stays))throw Error('Invalid response');
+  stays=payload.stays;
+ } catch(error) {
+  if(request!==requestNumber || error.name==='AbortError')return;
+  el('results').innerHTML='<p class="am-empty">No fue posible consultar las reservaciones. Revisa tu conexión e intenta nuevamente.</p>';
+  return;
+ }
  const groups=new Map();
  visible(selected).forEach(s=>{if(!groups.has(s.cabin))groups.set(s.cabin,[]);groups.get(s.cabin).push(s)});
- el('results').innerHTML=groups.size?Array.from(groups,([cabin,guests])=>'<article class="am-card"><h2>'+cabin+'</h2>'+guests.sort((a,b)=>a.arrival.localeCompare(b.arrival)).map(guest).join('')+'</article>').join(''):'<p class="am-empty">No hay huéspedes para esta fecha.</p>';
+ el('results').innerHTML=groups.size?Array.from(groups,([cabin,guests])=>'<article class="am-card"><h2>'+escape(cabin)+'</h2>'+guests.sort((a,b)=>a.arrival.localeCompare(b.arrival)).map(guest).join('')+'</article>').join(''):'<p class="am-empty">No hay huéspedes para esta fecha.</p>';
 }
 el('previous').addEventListener('click',()=>{selected=shift(selected,-1);render()});
 el('next').addEventListener('click',()=>{selected=shift(selected,1);render()});
@@ -127,6 +146,9 @@ el('today').addEventListener('click',()=>{selected=today;render()});
 el('choose').addEventListener('click',()=>{el('input').value=selected;el('dialog').showModal()});
 el('cancel').addEventListener('click',()=>el('dialog').close());
 el('form').addEventListener('submit',e=>{e.preventDefault();if(el('input').value&&el('form').reportValidity()){selected=el('input').value;render();el('dialog').close()}});
+function refresh(){const nextToday=currentDay();if(selected===today)selected=nextToday;today=nextToday;render()}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
+setInterval(()=>{if(!document.hidden&&!el('dialog').open)refresh()},60000);
 render();
 })();
 </script>

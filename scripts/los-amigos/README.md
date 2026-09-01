@@ -1,8 +1,8 @@
 # Los Amigos — conexión de consulta a Google Sheets
 
-Estado: implementación preparada; activación pendiente de credenciales privadas y prueba real en HostGator. No se han copiado datos personales de la hoja al repositorio.
+Estado: lectura real confirmada por el usuario en HostGator el 1 de septiembre de 2026. No se han copiado datos personales de la hoja al repositorio.
 
-La demostración aprobada permanece en `los-amigos/control/index.html`. La interfaz conectada está en `conectado.html`. Tras configurar y verificar el acceso, se sustituirá `index.html` por `conectado.html`.
+La interfaz conectada está activa en `los-amigos/control/index.html` y `conectado.html`. Ambos archivos usan el mismo endpoint de lectura autenticado.
 
 ## Fuente y reglas verificadas
 
